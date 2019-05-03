@@ -1,7 +1,6 @@
 <template>
   <div>
     <login-form/>
-    {{ env }}
   </div>
 </template>
 
@@ -11,11 +10,6 @@ import LoginForm from '@/components/login/LoginForm'
 export default {
   components: {
     LoginForm
-  },
-  computed: {
-    env: function () {
-      return process.env.GITHUB_CLIENT_SECRET
-    }
   },
   head () {
     return {
