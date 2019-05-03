@@ -1,0 +1,18 @@
+$c-lavender: #dccaff; /* ☕️ */
+$c-plum: #151118;
+
+$theme-colors: (
+  primary: $c-lavender,
+  dark:    $c-plum,
+);
+
+
+$border-color: $c-lavender;
+$input-bg: transparent;
+$input-color: $c-lavender;
+$input-border-radius: 0;
+$input-border-radius-sm: 0;
+$input-placeholder-color: $c-lavender;
+$input-font-weight: 300;
+$tooltip-color: $c-plum;
+$tooltip-bg: $c-lavender;

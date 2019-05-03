@@ -1,0 +1,29 @@
+$languages: (
+  html:           #ff5900,
+  javascript:     #ffee56,
+  typescript:     #0077cc,
+  php:            #a3aaff,
+  vue:            #42b883,
+  swift:          #ff941d,
+  lua:            #312ef8,
+  c:              #0079ff,
+  shell:          #00ff00,
+);
+
+@each $lang, $color in $languages {
+  .lang-#{$lang} {
+    color: $color !important;
+    border-color: $color !important;
+  }
+}
+
+body .repo-language {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  padding: 5px;
+  border: 1px solid $c-lavender;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  font-weight: 300;
+}

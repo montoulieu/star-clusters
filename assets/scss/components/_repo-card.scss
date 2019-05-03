@@ -1,0 +1,49 @@
+.card {
+  .card-body {
+    user-select: none;
+    min-height: 120px;
+
+    .badge-group  {
+      text-align: right;
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      border: 1px solid $c-lavender;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      font-weight: 300;
+
+      svg {
+        height: 12px;
+        position: relative;
+        top: -1px;
+
+        path {
+          fill: $c-lavender;
+        }
+      }
+    }
+  }
+
+  .card-footer {
+    .btn {
+      &:hover {
+        svg {
+          path {
+            fill: $c-plum
+          }
+        }
+      }
+    }
+
+    svg {
+      position: relative;
+      top: -1.5px;
+
+      path {
+        fill: $c-lavender;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+}

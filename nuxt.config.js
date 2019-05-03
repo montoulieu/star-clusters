@@ -1,5 +1,5 @@
 const pkg = require('./package')
-
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -8,14 +8,14 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Star Clusters for GitHub',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ]
   },
 
@@ -28,21 +28,29 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@/assets/scss/main.scss'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '@/plugins/shopify-draggable', ssr: false }
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [,
-    // Doc: https://bootstrap-vue.js.org/docs/
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/dotenv',
     'bootstrap-vue/nuxt'
   ],
+
+  router: {
+    middleware: ['auth']
+  },
 
   /*
   ** Build configuration
@@ -51,8 +59,18 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-      
+    extend(config, { isClient }) {
+      if (isClient) {
+        config.devtool = '#source-map'
+      }
     }
-  }
+  },
+  auth: {
+    strategies: {
+      github: {
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET
+      },
+    }
+  },
 }
