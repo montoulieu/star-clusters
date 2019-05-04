@@ -1,4 +1,8 @@
 .clusterbar {
+  position: sticky;
+  top: 4rem;
+  z-index: 60;
+
   header.sidebar-header {
     .btn-close {}
   }
@@ -12,7 +16,7 @@
   .star-cluster {
     outline: 0;
     background-color: transparentize($c-lavender, 0.95);
-    border: 1px dotted transparentize($c-lavender, 0.5);
+    border: 1px dotted $c-lavender-mid;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 15px;

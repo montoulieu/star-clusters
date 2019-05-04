@@ -14,11 +14,15 @@ body {
     align-items: center;
     justify-content: center;
   }
+
+  &.draggable--is-dragging {
+    cursor: grabbing;
+  }
 }
 
 pre {
-  background-color: #151118 !important;
-  color: #dccaff !important;
+  background-color: $c-plum !important;
+  color: $c-lavender !important;
 }
 
 .container {
@@ -57,7 +61,7 @@ pre {
   grid-gap: 15px;
 }
 
-.star-collection {
+.star-container {
   outline: 0;
 }
 
@@ -67,9 +71,7 @@ pre {
     display: none;
   }
 
-  .your-stars {
-
-  }
+  .your-stars {}
 
   &.clusterbar-open {
     .clusterbar {
@@ -77,4 +79,14 @@ pre {
       display: block;
     }
   }
+}
+
+.svg-fill-primary {
+  svg path {
+    fill: $c-lavender;
+  }
+}
+
+input {
+  outline: 0;
 }

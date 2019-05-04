@@ -1,30 +1,10 @@
 <template>
     <div class="main" :class="{'clusterbar-open': getSidebarOpen}">
-      <div class="clusterbar">
-        <header class="sidebar-header bg-dark position-sticky mb-5">
-          <b-row class="border-bottom pb-5">
-            <b-col class="col-md-3">
-              <div class="toolbar d-flex align-items-start">
-                <h3 class="font-weight-light mb-3 mr-auto">Add Cluster</h3>
-                <button @click="closeSidebar" class="btn btn-sm btn-outline-primary btn-close"><span v-html="iconClose.toSVG()"></span></button>
-              </div>
-              <form action="" class="mb-3">
-                <input type="text" class="form-control mb-3" placeholder="Cluster Name">
-                <textarea class="form-control"  placeholder="Cluster Description"></textarea>
-              </form>
-            </b-col>
-            <b-col>
-              <ul class="list-unstyled star-cluster star-container rounded h-100">
-
-              </ul>
-            </b-col>
-          </b-row>
-        </header>
-      </div>
+      <cluster-bar/>
       <div class="your-stars">
         <h1 class="h2 font-weight-light mb-3">Your Stars</h1>
         <ul class="list-unstyled star-container">
-          <li class="lone-star card bg-dark border" v-for="star in stars" :key="star.id">
+          <li class="lone-star card bg-dark border" v-for="star in stars" :key="star.id" data-index="star.id">
             <div class="card-body p-3 d-flex align-items-center">
               <div v-if="star.language" class="repo-language badge" :class="languageFormat(star.language)">{{ star.language }}</div>
               <div class="repo-info mr-2 d-flex align-items-center">
@@ -36,6 +16,7 @@
                   <p v-if="star.description" class="description small font-weight-light mb-0">{{ star.description.substring(0, 90) }}{{star.description.length > 90 ? '...' : ''}}</p>
                 </div>
               </div>
+              <span class="svg-fill-primary ml-auto" v-html="iconBars.toSVG()"></span>
               <div class="badge-group badge ml-auto d-flex">
                 <span class="font-weight-normal mr-2"><span v-html="iconStar.toSVG()"></span> {{star.stargazers_count}}</span>
                 <span class="font-weight-normal"><span v-html="iconFork.toSVG()"></span> {{star.forks}}</span>
@@ -48,17 +29,14 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { mapGetters, mapActions } from 'vuex'
+import ClusterBar from '@/components/ClusterBar';
 import octicons from 'octicons'
 
 export default {
   components: {
+    ClusterBar
   },
   computed: {
-    ...mapGetters([
-      'getSidebarOpen',
-    ]),
     stars : function () {
       return this.$store.state.stars
     },
@@ -74,8 +52,8 @@ export default {
     iconPlus: function () {
       return octicons['plus']
     },
-    iconClose: function () {
-      return octicons['x']
+    iconBars: function () {
+      return octicons['three-bars']
     }
   },
   methods: {
@@ -83,19 +61,17 @@ export default {
       this.$store.dispatch('fetchStars', user)
     },
     languageFormat: function (string) {
-      if (string != null)
-        return 'lang-' + string.toLowerCase()
+      if (string != null){
+        return 'lang-' + string
+          .toLowerCase()
+          .replace(new RegExp(' ', 'g'), '-')
+          .replace(new RegExp('#', 'g'),'-sharp')
+          .replace(new RegExp('\\+', 'g'),'-plus')
+      }
     },
-    ...mapActions([
-      'closeSidebar'
-    ])
   },
   mounted() {
     this.fetchStars(this.userName)
-    console.log(octicons);
-
-    // droppable.on('droppable:dropped', () => console.log('droppable:dropped'))
-    // droppable.on('droppable:returned', () => console.log('droppable:returned'))
   }
 }
 </script>

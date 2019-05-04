@@ -1,13 +1,19 @@
 $languages: (
-  html:           #ff5900,
+  html:           #fc7126,
+  css:            #006fc3,
   javascript:     #ffee56,
   typescript:     #0077cc,
   php:            #a3aaff,
   vue:            #42b883,
   swift:          #ff941d,
-  lua:            #312ef8,
-  c:              #0079ff,
-  shell:          #00ff00,
+  python:         #ffcd00,
+  lua:            #6445ee,
+  c:              #3b97ff,
+  c-plus-plus:    #3b97ff,
+  c-sharp:        #a66edf,
+  shell:          #48ff00,
+  go:             #2abdB1,
+  ocaml:          #E6362F,
 );
 
 @each $lang, $color in $languages {

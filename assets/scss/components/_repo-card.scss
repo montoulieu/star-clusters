@@ -3,7 +3,7 @@
     user-select: none;
     min-height: 120px;
 
-    .badge-group  {
+    .badge-group {
       text-align: right;
       position: absolute;
       bottom: -1px;
@@ -23,6 +23,10 @@
         }
       }
     }
+  }
+
+  .octicon-three-bars {
+    cursor: grab;
   }
 
   .card-footer {

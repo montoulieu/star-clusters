@@ -1,13 +1,15 @@
 $c-lavender: #dccaff; /* ☕️ */
+$c-lavender-mid: #aa9bcc;
 $c-plum: #151118;
 
 $theme-colors: (
   primary: $c-lavender,
+  secondary: $c-lavender-mid,
   dark:    $c-plum,
 );
 
 
-$border-color: $c-lavender;
+$border-color: $c-lavender-mid;
 $input-bg: transparent;
 $input-color: $c-lavender;
 $input-border-radius: 0;
