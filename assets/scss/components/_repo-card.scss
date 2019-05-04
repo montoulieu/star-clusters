@@ -50,4 +50,11 @@
       }
     }
   }
+
+  &.draggable-source--is-dragging {
+    z-index: 100;
+    box-shadow: $box-shadow;
+  }
+
+  z-index: 50;
 }

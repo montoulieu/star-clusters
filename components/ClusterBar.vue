@@ -1,7 +1,7 @@
 <template>
   <div class="clusterbar bg-dark">
-    <b-row class="border-bottom pb-4 mb-4">
-      <b-col class="col-md-3">
+    <b-row class="border-bottom pb-4">
+      <b-col md="3" order-md="2">
         <div class="toolbar-header d-flex align-items-start">
           <h3 class="font-weight-light mb-3 mr-auto">Add Cluster</h3>
           <button @click="closeSidebar" class="btn btn-sm btn-outline-primary btn-close"><span v-html="iconClose.toSVG()"></span></button>
@@ -23,12 +23,18 @@
 
 <script>
 import octicons from 'octicons'
+import { mapActions } from 'vuex'
 
 export default {
   computed: {
     iconClose: function () {
       return octicons['x']
     }
+  },
+  methods: {
+    ...mapActions([
+      'closeSidebar'
+    ])
   }
 }
 </script>

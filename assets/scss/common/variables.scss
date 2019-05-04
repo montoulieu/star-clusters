@@ -6,6 +6,7 @@ $theme-colors: (
   primary: $c-lavender,
   secondary: $c-lavender-mid,
   dark:    $c-plum,
+  light: $c-lavender,
 );
 
 
@@ -14,7 +15,8 @@ $input-bg: transparent;
 $input-color: $c-lavender;
 $input-border-radius: 0;
 $input-border-radius-sm: 0;
-$input-placeholder-color: $c-lavender;
+$input-btn-focus-box-shadow: none;
+$input-placeholder-color: $c-lavender-mid;
 $input-font-weight: 300;
 $tooltip-color: $c-plum;
 $tooltip-bg: $c-lavender;

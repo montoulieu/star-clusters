@@ -7,7 +7,7 @@
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item @click="newCluster">Add Cluster</b-nav-item>
+            <b-nav-item @click="newCluster">Create Cluster</b-nav-item>
           </b-navbar-nav>
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
@@ -51,22 +51,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  .navbar {
-    letter-spacing: 1px;
-
-    a {
-      color: #dccaff !important;
-    }
-
-    .dropdown-menu {
-      background-color: #151118 !important;
-      border-color: #dccaff;
-    }
-  }
-  .avatar-photo {
-    height: 32px;
-    border-radius: 100%;
-  }
-</style>

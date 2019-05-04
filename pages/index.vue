@@ -1,10 +1,10 @@
 <template>
     <div class="main" :class="{'clusterbar-open': getSidebarOpen}">
       <cluster-bar/>
-      <div class="your-stars">
-        <h1 class="h2 font-weight-light mb-3">Your Stars</h1>
+      <div class="your-stars pt-3">
+        <h1 class="h2 font-weight-light mb-3">Your GitHub Stars</h1>
         <ul class="list-unstyled star-container">
-          <li class="lone-star card bg-dark border" v-for="star in stars" :key="star.id" data-index="star.id">
+          <li class="lone-star card bg-dark border" v-for="star in stars" :key="star.id" :data-index="star.id">
             <div class="card-body p-3 d-flex align-items-center">
               <div v-if="star.language" class="repo-language badge" :class="languageFormat(star.language)">{{ star.language }}</div>
               <div class="repo-info mr-2 d-flex align-items-center">
@@ -30,6 +30,7 @@
 
 <script>
 import ClusterBar from '@/components/ClusterBar';
+import { mapGetters } from 'vuex'
 import octicons from 'octicons'
 
 export default {
@@ -37,6 +38,9 @@ export default {
     ClusterBar
   },
   computed: {
+    ...mapGetters([
+      'getSidebarOpen',
+    ]),
     stars : function () {
       return this.$store.state.stars
     },
