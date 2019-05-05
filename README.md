@@ -1,6 +1,6 @@
-# star-clusters
+# Star Clusters for GitHub
 
-> A simple way to organize and share your GitHub stars
+> 🌌 A social network for collecting and sharing clusters of GitHub Stars.
 
 ## Build Setup
 
@@ -18,5 +18,3 @@ $ yarn start
 # generate static project
 $ yarn run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
